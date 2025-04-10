@@ -25,12 +25,19 @@ class AnimalFactory {
 
     private fun safeLowercase(input: String): String {
         return try {
-            // Kotlin 1.5+ 지원
-            val method = String::class.java.getMethod("lowercase", Locale::class.java)
-            method.invoke(input, Locale.getDefault()) as String
-        } catch (e: NoSuchMethodException) {
-            // Kotlin 1.4 이하
-            input.toLowerCase(Locale.getDefault())
+            // Kotlin 1.5+: lowercase()
+            val method = String::class.java.getMethod("lowercase")
+            method.invoke(input) as String
+        } catch (_: NoSuchMethodException) {
+            try {
+                // Kotlin 1.5+: lowercase(Locale)
+                val method = String::class.java.getMethod("lowercase", Locale::class.java)
+                method.invoke(input, Locale.getDefault()) as String
+            } catch (_: NoSuchMethodException) {
+                // Kotlin 1.4 fallback (may be deprecated, but no other choice)
+                @Suppress("DEPRECATION")
+                input.toLowerCase(Locale.getDefault())
+            }
         }
     }
 }
