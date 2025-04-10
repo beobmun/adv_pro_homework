@@ -16,4 +16,5 @@ jobs:
                 python-version: '3.x'
             - name: python design patterns compile test
               run: |
+                ls
                 ./python_test.sh
