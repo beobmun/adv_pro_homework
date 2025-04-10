@@ -20,7 +20,7 @@ jobs:
                 echo "JAVA_HOME=$JAVA_HOME"
                 curl -s https://get.sdkman.io | bash
                 source "$HOME/.sdkman/bin/sdkman-init.sh"
-                sdk install kotlin
+                sdk install kotlin 1.3.72
                 mkdir release_artifacts
 
             - name: Compile Adapter Pattern
