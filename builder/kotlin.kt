@@ -12,13 +12,13 @@ class PersonBuilder {
         return this
     }
 
-    fun withAge(age: Int): PersonBuilder {
-        person.age = age
+    fun withAge(personAge: Int): PersonBuilder {
+        person.age = personAge
         return this
     }
 
-    fun withAddress(address: String): PersonBuilder {
-        person.address = address
+    fun withAddress(newAddress: String): PersonBuilder {
+        person.address = newAddress
         return this
     }
 
