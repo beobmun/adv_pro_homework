@@ -1,0 +1,15 @@
+/bce/lectures/2025-advanced-programming/202155642/week6/homework2/builder/c#/bin/Debug/net8.0/c#
+/bce/lectures/2025-advanced-programming/202155642/week6/homework2/builder/c#/bin/Debug/net8.0/c#.deps.json
+/bce/lectures/2025-advanced-programming/202155642/week6/homework2/builder/c#/bin/Debug/net8.0/c#.runtimeconfig.json
+/bce/lectures/2025-advanced-programming/202155642/week6/homework2/builder/c#/bin/Debug/net8.0/c#.dll
+/bce/lectures/2025-advanced-programming/202155642/week6/homework2/builder/c#/bin/Debug/net8.0/c#.pdb
+/bce/lectures/2025-advanced-programming/202155642/week6/homework2/builder/c#/obj/Debug/net8.0/c#.GeneratedMSBuildEditorConfig.editorconfig
+/bce/lectures/2025-advanced-programming/202155642/week6/homework2/builder/c#/obj/Debug/net8.0/c#.AssemblyInfoInputs.cache
+/bce/lectures/2025-advanced-programming/202155642/week6/homework2/builder/c#/obj/Debug/net8.0/c#.AssemblyInfo.cs
+/bce/lectures/2025-advanced-programming/202155642/week6/homework2/builder/c#/obj/Debug/net8.0/c#.csproj.CoreCompileInputs.cache
+/bce/lectures/2025-advanced-programming/202155642/week6/homework2/builder/c#/obj/Debug/net8.0/c#.sourcelink.json
+/bce/lectures/2025-advanced-programming/202155642/week6/homework2/builder/c#/obj/Debug/net8.0/c#.dll
+/bce/lectures/2025-advanced-programming/202155642/week6/homework2/builder/c#/obj/Debug/net8.0/refint/c#.dll
+/bce/lectures/2025-advanced-programming/202155642/week6/homework2/builder/c#/obj/Debug/net8.0/c#.pdb
+/bce/lectures/2025-advanced-programming/202155642/week6/homework2/builder/c#/obj/Debug/net8.0/c#.genruntimeconfig.cache
+/bce/lectures/2025-advanced-programming/202155642/week6/homework2/builder/c#/obj/Debug/net8.0/ref/c#.dll
