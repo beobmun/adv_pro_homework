@@ -1,0 +1,80 @@
+name: Build and Release Design Patterns
+
+on:
+    workflow_dispatch:
+    push:
+    pull_request:
+
+jobs:
+    compile:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v2
+            
+            - name: Set up build tools (C++, .NET, Kotlin, Python)
+              run: |
+                sudo apt update
+                sudo apt install -y g++ openjdk-17-jdk zip python3 python3-pip
+                dotnet --version || sudo apt install -y dotnet-sdk-7.0
+                echo "JAVA_HOME=$JAVA_HOME"
+                curl -s https://get.sdkman.io | bash
+                source "$HOME/.sdkman/bin/sdkman-init.sh"
+                sdk install kotlin
+                mkdir release_artifacts
+
+            - name: Compile Adapter Pattern
+              run: |
+                mkdir release_artifacts/AdapterPattern
+                g++ -o release_artifacts/AdapterPattern/AdapterPattern_cpp adapter/*.cpp
+                dotnet build adapter/c#/c#.csproj -c Release -o release_artifacts/AdapterPattern/AdapterPattern_csharp
+                kotlin adapter/*.kt -include-runtime -d release_artifacts/AdapterPattern/AdapterPattern_kotlin.jar
+            
+            - name: Compile Builder Pattern
+              run: |
+                mkdir release_artifacts/BuilderPattern
+                g++ -o release_artifacts/BuilderPattern/BuilderPattern_cpp builder/*.cpp
+                dotnet build builder/c#/c#.csproj -c Release -o release_artifacts/BuilderPattern/BuilderPattern_csharp
+                kotlin builder/*.kt -include-runtime -d release_artifacts/BuilderPattern/BuilderPattern_kotlin.jar
+
+            - name: Compile Decorator Pattern
+              run: |
+                mkdir release_artifacts/DecoratorPattern
+                g++ -o release_artifacts/DecoratorPattern/DecoratorPattern_cpp decorator/*.cpp
+                dotnet build decorator/c#/c#.csproj -c Release -o release_artifacts/DecoratorPattern/DecoratorPattern_csharp
+                kotlin decorator/*.kt -include-runtime -d release_artifacts/DecoratorPattern/DecoratorPattern_kotlin.jar
+            
+            - name: Compile Facade Pattern
+              run: |
+                mkdir release_artifacts/FacadePattern
+                g++ -o release_artifacts/FacadePattern/FacadePattern_cpp facade/*.cpp
+                dotnet build facade/c#/c#.csproj -c Release -o release_artifacts/FacadePattern/FacadePattern_csharp
+                kotlin facade/*.kt -include-runtime -d release_artifacts/FacadePattern/FacadePattern_kotlin.jar
+            
+            - name: Compile Factory Method Pattern
+              run: |
+                mkdir release_artifacts/FactoryMethodPattern
+                g++ -o release_artifacts/FactoryMethodPattern/FactoryMethodPattern_cpp factory_method/*.cpp
+                dotnet build factory_method/c#/c#.csproj -c Release -o release_artifacts/FactoryMethodPattern/FactoryMethodPattern_csharp
+                kotlin factory_method/*.kt -include-runtime -d release_artifacts/FactoryMethodPattern/FactoryMethodPattern_kotlin.jar
+            
+            - name: Compile Method Chain Pattern
+              run: |
+                mkdir release_artifacts/MethodChainPattern
+                g++ -o release_artifacts/MethodChainPattern/MethodChainPattern_cpp method_chain/*.cpp
+                dotnet build method_chain/c#/c#.csproj -c Release -o release_artifacts/MethodChainPattern/MethodChainPattern_csharp
+                kotlin method_chain/*.kt -include-runtime -d release_artifacts/MethodChainPattern/MethodChainPattern_kotlin.jar
+
+            - name: Zip Release Files
+              run: |
+                zip -r release_package.zip release_artifacts
+                echo "Release package created: release_package.zip"
+            
+            - name: Create GitHub Release
+              uses: softprops/action-gh-release@v1
+              with:
+                release_name: "Design Patterns Release"
+                body: "Release of Design Patterns in C++, C#, Kotlin"
+                files: release_package.zip
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
