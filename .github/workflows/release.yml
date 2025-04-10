@@ -70,6 +70,43 @@ jobs:
                 zip -r release_package.zip release_artifacts
                 echo "Release package created: release_package.zip"
             
+            - name: Run Tests
+              run: |
+                cd release_artifacts
+                cd AdapterPattern
+                ./AdapterPattern_cpp
+                java -jar AdapterPattern_kotlin.jar
+                cd AdapterPattern_csharp
+                dotnet run
+                cd ../../BuilderPattern
+                ./BuilderPattern_cpp
+                java -jar BuilderPattern_kotlin.jar
+                cd BuilderPattern_csharp
+                dotnet run
+                cd ../../DecoratorPattern
+                ./DecoratorPattern_cpp
+                java -jar DecoratorPattern_kotlin.jar
+                cd DecoratorPattern_csharp
+                dotnet run
+                cd ../../FacadePattern
+                ./FacadePattern_cpp
+                java -jar FacadePattern_kotlin.jar
+                cd FacadePattern_csharp
+                dotnet run
+                cd ../../FactoryMethodPattern
+                ./FactoryMethodPattern_cpp
+                java -jar FactoryMethodPattern_kotlin.jar
+                cd FactoryMethodPattern_csharp
+                dotnet run
+                cd ../../MethodChainPattern
+                ./MethodChainPattern_cpp
+                java -jar MethodChainPattern_kotlin.jar
+                cd MethodChainPattern_csharp
+                dotnet run
+                cd ../..
+                echo "All tests passed successfully!"
+                
+            
             - name: Create GitHub Release
               uses: softprops/action-gh-release@v1
               with:
