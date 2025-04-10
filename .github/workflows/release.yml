@@ -74,27 +74,27 @@ jobs:
               run: |
                 release_artifacts/AdapterPattern/AdapterPattern_cpp
                 java -jar release_artifacts/AdapterPattern/AdapterPattern_kotlin.jar
-                dotnet release_artifacts/AdapterPattern/AdapterPattern_csharp/AdapterPattern.dll
+                dotnet release_artifacts/AdapterPattern/AdapterPattern_csharp/c#.dll
 
                 release_artifacts/BuilderPattern/BuilderPattern_cpp
                 java -jar release_artifacts/BuilderPattern/BuilderPattern_kotlin.jar
-                dotnet release_artifacts/BuilderPattern/BuilderPattern_csharp/BuilderPattern.dll
+                dotnet release_artifacts/BuilderPattern/BuilderPattern_csharp/c#.dll
 
                 release_artifacts/DecoratorPattern/DecoratorPattern_cpp
                 java -jar release_artifacts/DecoratorPattern/DecoratorPattern_kotlin.jar
-                dotnet release_artifacts/DecoratorPattern/DecoratorPattern_csharp/DecoratorPattern.dll
+                dotnet release_artifacts/DecoratorPattern/DecoratorPattern_csharp/c#.dll
 
                 release_artifacts/FacadePattern/FacadePattern_cpp
                 java -jar release_artifacts/FacadePattern/FacadePattern_kotlin.jar
-                dotnet release_artifacts/FacadePattern/FacadePattern_csharp/FacadePattern.dll
+                dotnet release_artifacts/FacadePattern/FacadePattern_csharp/c#.dll
 
                 release_artifacts/FactoryMethodPattern/FactoryMethodPattern_cpp
                 java -jar release_artifacts/FactoryMethodPattern/FactoryMethodPattern_kotlin.jar
-                dotnet release_artifacts/FactoryMethodPattern/FactoryMethodPattern_csharp/FactoryMethodPattern.dll
+                dotnet release_artifacts/FactoryMethodPattern/FactoryMethodPattern_csharp/c#.dll
 
                 release_artifacts/MethodChainPattern/MethodChainPattern_cpp
                 java -jar release_artifacts/MethodChainPattern/MethodChainPattern_kotlin.jar
-                dotnet release_artifacts/MethodChainPattern/MethodChainPattern_csharp/MethodChainPattern.dll
+                dotnet release_artifacts/MethodChainPattern/MethodChainPattern_csharp/c#.dll
 
                 echo "All tests passed successfully!"
 
