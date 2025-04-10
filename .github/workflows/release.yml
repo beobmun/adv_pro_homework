@@ -73,7 +73,8 @@ jobs:
             - name: Create GitHub Release
               uses: softprops/action-gh-release@v1
               with:
-                release_name: "Design Patterns Release"
+                tag_name: "v1.0.0"
+                name: "Design Patterns Release"
                 body: "Release of Design Patterns in C++, C#, Kotlin"
                 files: release_package.zip
               env:
