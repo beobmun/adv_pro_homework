@@ -28,42 +28,42 @@ jobs:
                 mkdir release_artifacts/AdapterPattern
                 g++ -o release_artifacts/AdapterPattern/AdapterPattern_cpp adapter/*.cpp
                 dotnet build adapter/c#/c#.csproj -c Release -o release_artifacts/AdapterPattern/AdapterPattern_csharp
-                kotlin adapter/*.kt -include-runtime -d release_artifacts/AdapterPattern/AdapterPattern_kotlin.jar
+                kotlinc adapter/*.kt -include-runtime -d release_artifacts/AdapterPattern/AdapterPattern_kotlin.jar
             
             - name: Compile Builder Pattern
               run: |
                 mkdir release_artifacts/BuilderPattern
                 g++ -o release_artifacts/BuilderPattern/BuilderPattern_cpp builder/*.cpp
                 dotnet build builder/c#/c#.csproj -c Release -o release_artifacts/BuilderPattern/BuilderPattern_csharp
-                kotlin builder/*.kt -include-runtime -d release_artifacts/BuilderPattern/BuilderPattern_kotlin.jar
+                kotlinc builder/*.kt -include-runtime -d release_artifacts/BuilderPattern/BuilderPattern_kotlin.jar
 
             - name: Compile Decorator Pattern
               run: |
                 mkdir release_artifacts/DecoratorPattern
                 g++ -o release_artifacts/DecoratorPattern/DecoratorPattern_cpp decorator/*.cpp
                 dotnet build decorator/c#/c#.csproj -c Release -o release_artifacts/DecoratorPattern/DecoratorPattern_csharp
-                kotlin decorator/*.kt -include-runtime -d release_artifacts/DecoratorPattern/DecoratorPattern_kotlin.jar
+                kotlinc decorator/*.kt -include-runtime -d release_artifacts/DecoratorPattern/DecoratorPattern_kotlin.jar
             
             - name: Compile Facade Pattern
               run: |
                 mkdir release_artifacts/FacadePattern
                 g++ -o release_artifacts/FacadePattern/FacadePattern_cpp facade/*.cpp
                 dotnet build facade/c#/c#.csproj -c Release -o release_artifacts/FacadePattern/FacadePattern_csharp
-                kotlin facade/*.kt -include-runtime -d release_artifacts/FacadePattern/FacadePattern_kotlin.jar
+                kotlinc facade/*.kt -include-runtime -d release_artifacts/FacadePattern/FacadePattern_kotlin.jar
             
             - name: Compile Factory Method Pattern
               run: |
                 mkdir release_artifacts/FactoryMethodPattern
                 g++ -o release_artifacts/FactoryMethodPattern/FactoryMethodPattern_cpp factory_method/*.cpp
                 dotnet build factory_method/c#/c#.csproj -c Release -o release_artifacts/FactoryMethodPattern/FactoryMethodPattern_csharp
-                kotlin factory_method/*.kt -include-runtime -d release_artifacts/FactoryMethodPattern/FactoryMethodPattern_kotlin.jar
+                kotlinc factory_method/*.kt -include-runtime -d release_artifacts/FactoryMethodPattern/FactoryMethodPattern_kotlin.jar
             
             - name: Compile Method Chain Pattern
               run: |
                 mkdir release_artifacts/MethodChainPattern
                 g++ -o release_artifacts/MethodChainPattern/MethodChainPattern_cpp method_chain/*.cpp
                 dotnet build method_chain/c#/c#.csproj -c Release -o release_artifacts/MethodChainPattern/MethodChainPattern_csharp
-                kotlin method_chain/*.kt -include-runtime -d release_artifacts/MethodChainPattern/MethodChainPattern_kotlin.jar
+                kotlinc method_chain/*.kt -include-runtime -d release_artifacts/MethodChainPattern/MethodChainPattern_kotlin.jar
 
             - name: Zip Release Files
               run: |
