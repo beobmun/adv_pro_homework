@@ -72,40 +72,32 @@ jobs:
             
             - name: Run Tests
               run: |
-                cd release_artifacts
-                cd AdapterPattern
-                ./AdapterPattern_cpp
-                java -jar AdapterPattern_kotlin.jar
-                cd AdapterPattern_csharp
-                dotnet run
-                cd ../../BuilderPattern
-                ./BuilderPattern_cpp
-                java -jar BuilderPattern_kotlin.jar
-                cd BuilderPattern_csharp
-                dotnet run
-                cd ../../DecoratorPattern
-                ./DecoratorPattern_cpp
-                java -jar DecoratorPattern_kotlin.jar
-                cd DecoratorPattern_csharp
-                dotnet run
-                cd ../../FacadePattern
-                ./FacadePattern_cpp
-                java -jar FacadePattern_kotlin.jar
-                cd FacadePattern_csharp
-                dotnet run
-                cd ../../FactoryMethodPattern
-                ./FactoryMethodPattern_cpp
-                java -jar FactoryMethodPattern_kotlin.jar
-                cd FactoryMethodPattern_csharp
-                dotnet run
-                cd ../../MethodChainPattern
-                ./MethodChainPattern_cpp
-                java -jar MethodChainPattern_kotlin.jar
-                cd MethodChainPattern_csharp
-                dotnet run
-                cd ../..
+                release_artifacts/AdapterPattern/AdapterPattern_cpp
+                java -jar release_artifacts/AdapterPattern/AdapterPattern_kotlin.jar
+                dotnet release_artifacts/AdapterPattern/AdapterPattern_csharp/AdapterPattern.dll
+
+                release_artifacts/BuilderPattern/BuilderPattern_cpp
+                java -jar release_artifacts/BuilderPattern/BuilderPattern_kotlin.jar
+                dotnet release_artifacts/BuilderPattern/BuilderPattern_csharp/BuilderPattern.dll
+
+                release_artifacts/DecoratorPattern/DecoratorPattern_cpp
+                java -jar release_artifacts/DecoratorPattern/DecoratorPattern_kotlin.jar
+                dotnet release_artifacts/DecoratorPattern/DecoratorPattern_csharp/DecoratorPattern.dll
+
+                release_artifacts/FacadePattern/FacadePattern_cpp
+                java -jar release_artifacts/FacadePattern/FacadePattern_kotlin.jar
+                dotnet release_artifacts/FacadePattern/FacadePattern_csharp/FacadePattern.dll
+
+                release_artifacts/FactoryMethodPattern/FactoryMethodPattern_cpp
+                java -jar release_artifacts/FactoryMethodPattern/FactoryMethodPattern_kotlin.jar
+                dotnet release_artifacts/FactoryMethodPattern/FactoryMethodPattern_csharp/FactoryMethodPattern.dll
+
+                release_artifacts/MethodChainPattern/MethodChainPattern_cpp
+                java -jar release_artifacts/MethodChainPattern/MethodChainPattern_kotlin.jar
+                dotnet release_artifacts/MethodChainPattern/MethodChainPattern_csharp/MethodChainPattern.dll
+
                 echo "All tests passed successfully!"
-                
+
             
             - name: Create GitHub Release
               uses: softprops/action-gh-release@v1
